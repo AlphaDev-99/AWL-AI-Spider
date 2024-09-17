@@ -1,6 +1,8 @@
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
+import httpx
 
+# Define the prompt template
 template = (
     "You are tasked with extracting specific information from the following text content: {dom_content}. "
     "Please follow these instructions carefully: \n\n"
@@ -11,6 +13,7 @@ template = (
     "5. **Prioritize Accuracy:** Ensure that the data provided is as accurate and specific to the request as possible."
 )
 
+# Initialize the model
 model = OllamaLLM(model="llama3.1")
 
 def parse_with_ollama(dom_chunks, parse_description):
@@ -20,9 +23,13 @@ def parse_with_ollama(dom_chunks, parse_description):
     parsed_results = []
 
     for i, chunk in enumerate(dom_chunks, start=1):
-        response = chain.invoke({"dom_content": chunk, "parse_description": parse_description})
-        print(f"Parsed batch {i} of {len(dom_chunks)}")
-        parsed_results.append(response)
+        try:
+            response = chain.invoke({"dom_content": chunk, "parse_description": parse_description})
+            print(f"Parsed batch {i} of {len(dom_chunks)}")
+            parsed_results.append(response)
+        except httpx.ConnectError as e:
+            print(f"Connection error during batch {i}: {e}")
+            # Optionally retry or log the issue
+            parsed_results.append("")  # Append empty result in case of failure
 
     return "\n".join(parsed_results)
-
