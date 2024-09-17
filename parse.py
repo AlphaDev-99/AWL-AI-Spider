@@ -24,12 +24,22 @@ def parse_with_ollama(dom_chunks, parse_description):
 
     for i, chunk in enumerate(dom_chunks, start=1):
         try:
+            print(f"Parsing batch {i} of {len(dom_chunks)}...")  # Log current batch
             response = chain.invoke({"dom_content": chunk, "parse_description": parse_description})
-            print(f"Parsed batch {i} of {len(dom_chunks)}")
-            parsed_results.append(response)
+            
+            # Validate the response
+            if response and isinstance(response, str):
+                parsed_results.append(response)
+            else:
+                print(f"Warning: Invalid response for batch {i}. Skipping.")
+                parsed_results.append("")  # Append an empty string if response is invalid
         except httpx.ConnectError as e:
             print(f"Connection error during batch {i}: {e}")
-            # Optionally retry or log the issue
             parsed_results.append("")  # Append empty result in case of failure
+        except Exception as e:
+            print(f"Error occurred during batch {i}: {e}")
+            parsed_results.append("")  # Handle any unexpected error gracefully
 
+    # Join all the results
     return "\n".join(parsed_results)
+
