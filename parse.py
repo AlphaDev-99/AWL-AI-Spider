@@ -27,7 +27,12 @@ def parse_with_ollama(dom_chunks, parse_description, retries=3, delay=2):
         for attempt in range(retries):
             try:
                 print(f"Parsing batch {i} of {len(dom_chunks)}, attempt {attempt + 1}...")  # Log current batch
+                
+                # Send the request to the model
                 response = chain.invoke({"dom_content": chunk, "parse_description": parse_description})
+                
+                # Log the raw response for debugging
+                print(f"Raw response for batch {i}: {response}")
                 
                 # Validate the response
                 if response and isinstance(response, str):
@@ -57,5 +62,9 @@ def parse_with_ollama(dom_chunks, parse_description, retries=3, delay=2):
                 break
 
     # Join all the results
-    return "\n".join(parsed_results)
-
+    result = "\n".join(parsed_results)
+    
+    # Log final result for debugging
+    print(f"Final parsed results:\n{result}")
+    
+    return result
