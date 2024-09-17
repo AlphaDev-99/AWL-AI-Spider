@@ -1,8 +1,7 @@
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
-import httpx
 
-# Define the prompt template
+
 template = (
     "You are tasked with extracting specific information from the following text content: {dom_content}. "
     "Please follow these instructions carefully: \n\n"
@@ -13,33 +12,23 @@ template = (
     "5. **Prioritize Accuracy:** Ensure that the data provided is as accurate and specific to the request as possible."
 )
 
-# Initialize the model
+
 model = OllamaLLM(model="llama3.1")
+
 
 def parse_with_ollama(dom_chunks, parse_description):
     prompt = ChatPromptTemplate.from_template(template)
-    chain = prompt | model 
+    chain = prompt | model
+
 
     parsed_results = []
 
+
     for i, chunk in enumerate(dom_chunks, start=1):
-        try:
-            print(f"Parsing batch {i} of {len(dom_chunks)}...")  # Log current batch
-            response = chain.invoke({"dom_content": chunk, "parse_description": parse_description})
-            
-            # Validate the response
-            if response and isinstance(response, str):
-                parsed_results.append(response)
-            else:
-                print(f"Warning: Invalid response for batch {i}. Skipping.")
-                parsed_results.append("")  # Append an empty string if response is invalid
-        except httpx.ConnectError as e:
-            print(f"Connection error during batch {i}: {e}")
-            parsed_results.append("")  # Append empty result in case of failure
-        except Exception as e:
-            print(f"Error occurred during batch {i}: {e}")
-            parsed_results.append("")  # Handle any unexpected error gracefully
+        response = chain.invoke({"dom_content": chunk, "parse_description": parse_description}
+        )
+        print(f"Parsed batch {i} of {len(dom_chunks)}")
+        parsed_results.append(response)
 
-    # Join all the results
+
     return "\n".join(parsed_results)
-
