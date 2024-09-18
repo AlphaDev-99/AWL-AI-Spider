@@ -11,7 +11,7 @@ from parse import parse_with_ollama
 st.set_page_config(page_title="AWL AI Web Scraper", page_icon="🕸️", layout="wide")
 
 # Test to ensure the logo loads
-st.image("AWL_Logo.png", width=150)  # This helps verify the image path
+st.image("AWL_BUDDY_Logo.png", width=300)  # Increased the width to 300px
 
 # Custom CSS for modern and exciting text effects
 st.markdown("""
@@ -19,7 +19,7 @@ st.markdown("""
         /* General Styles */
         body {
             font-family: 'Helvetica', sans-serif;
-            background: url('AWL_Logo.png') no-repeat center center fixed;
+            background: url('AWL_BUDDY_Logo.png') no-repeat center center fixed;
             background-size: cover;
             background-color: rgba(255, 255, 255, 0.7); /* Ensure text is readable */
             color: #333;
@@ -33,7 +33,7 @@ st.markdown("""
 
         /* Image styling for AWL Buddy */
         .awl-buddy-img {
-            width: 150px; /* Adjust size as needed */
+            width: 300px; /* Increased logo size to 300px */
             border-radius: 10px;
             margin-bottom: 20px;
         }
@@ -140,7 +140,7 @@ st.markdown("""
 # Header container with title, image, and message
 st.markdown("""
     <div class="header-container">
-        <img src="AWL_BUDDY_Logo%20(2).png" class="awl-buddy-img" alt="AWL Buddy">
+        <img src="AWL_BUDDY_Logo.png" class="awl-buddy-img" alt="AWL Buddy">
         <h1 class="shiny-title">AWL AI Web Scraper</h1>
         <p class="subtitle">
             <strong>🎉 It's AWL Buddy's First Day at Work! 🎉</strong><br>
