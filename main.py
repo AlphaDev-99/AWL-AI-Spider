@@ -127,7 +127,7 @@ st.markdown("""
 # Header container with title, image, and message
 st.markdown("""
     <div class="header-container">
-        <img src="AWL_BUDDY_Logo (2).png" class="awl-buddy-img" alt="AWL Buddy">
+        <img src="AWL_BUDDY_Logo%20(2).png" class="awl-buddy-img" alt="AWL Buddy">
         <h1 class="shiny-title">AWL AI Web Scraper</h1>
         <p class="subtitle">
             <strong>Welcome to AWL Buddy's First Day at Work!</strong><br>
