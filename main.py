@@ -29,19 +29,20 @@ st.markdown("""
         .header-container {
             text-align: center;
             margin-bottom: 20px; /* Space between logo and title */
+            margin-top: -50px; /* Shift the container higher */
         }
 
         /* Image styling for AWL Buddy */
         .awl-buddy-img {
             width: 300px; /* Increased logo size to 300px */
             border-radius: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 10px; /* Reduced bottom margin */
         }
 
         /* Shiny and Animated Title with Subtle Glow Effect and Larger Font */
         .shiny-title {
             font-weight: bold;
-            font-size: 96px;  /* Bigger font size */
+            font-size: 72px;  /* Adjusted font size */
             color: white;  /* White color for the text */
             background: linear-gradient(90deg, white, white) 0% 0% no-repeat;
             background-size: 100% 100%;
@@ -52,6 +53,7 @@ st.markdown("""
             overflow: hidden;
             animation: fadeInBounce 3s ease;
             transition: transform 0.3s ease; /* Smooth transition for hover effect */
+            margin-top: -30px; /* Shift the title higher */
         }
 
         .shiny-title::before {
@@ -94,7 +96,7 @@ st.markdown("""
             color: #FFF;
             opacity: 0;
             animation: subtitlePopUp 4s ease-in-out forwards, pulse 2s infinite; /* Animate once and pulse */
-            margin-top: -10px;
+            margin-top: -20px; /* Shift subtitle higher */
             text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow for depth */
             line-height: 1.5; /* Line height for better readability */
         }
