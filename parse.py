@@ -15,29 +15,30 @@ template = (
 
 model = OllamaLLM(model="llama3.1")
 
-def parse_with_ollama(dom_chunks, parse_description, retries=3):
+def parse_with_ollama(dom_chunks, parse_description):
     prompt = ChatPromptTemplate.from_template(template)
     chain = prompt | model 
 
     parsed_results = []
 
     for i, chunk in enumerate(dom_chunks, start=1):
-        attempt = 0
-        while attempt < retries:
-            try:
-                response = chain.invoke({"dom_content": chunk, "parse_description": parse_description})
-                print(f"Parsed batch {i} of {len(dom_chunks)}")
-                parsed_results.append(response)
-                break  # Break the loop on successful parse
-            except (httpx.ConnectError, httpx.RequestError) as e:
-                attempt += 1
-                print(f"Retrying batch {i} of {len(dom_chunks)}, attempt {attempt} due to error: {e}")
-                time.sleep(2)  # Delay before retrying
-                if attempt == retries:
-                    parsed_results.append("")  # Append an empty string for failed parses
-            except Exception as e:
-                print(f"Unexpected error parsing batch {i} of {len(dom_chunks)}: {e}")
-                parsed_results.append("")  # Handle unexpected exceptions
-                break  # Exit retry loop for unexpected errors
+        # Log the chunk size and contents
+        print(f"Parsing batch {i} of {len(dom_chunks)}: {chunk[:200]}...")  # Print the first 200 characters for reference
 
-    return "\n".join(parsed_results)
+        # Invoke Ollama for parsing
+        response = chain.invoke({"dom_content": chunk, "parse_description": parse_description})
+
+        # Handle empty response more effectively
+        if not response or response.strip() == '':
+            print(f"No relevant data found in chunk {i}.")
+        else:
+            print(f"Parsed response for batch {i}: {response}")
+            parsed_results.append(response)
+
+    # Combine results and remove any empty entries
+    final_result = "\n".join(parsed_results).strip()
+    
+    # Log the final output
+    print(f"Final parsed data:\n{final_result}")
+    return final_result if final_result else "No relevant data extracted."
+
