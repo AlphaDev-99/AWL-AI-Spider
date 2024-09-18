@@ -11,7 +11,7 @@ from parse import parse_with_ollama
 st.set_page_config(page_title="AWL AI Web Scraper", page_icon="🕸️", layout="wide")
 
 # Test to ensure the logo loads
-st.image("AWL_Logo.png", width=150)  # This helps verify the image path
+st.image("/mnt/data/image.png", width=150)  # Update the path to match the uploaded image
 
 # Custom CSS for modern and exciting text effects
 st.markdown("""
@@ -140,7 +140,7 @@ st.markdown("""
 # Header container with title, image, and message
 st.markdown("""
     <div class="header-container">
-        <img src="AWL_BUDDY_Logo%20(2).png" class="awl-buddy-img" alt="AWL Buddy">
+        <img src="/mnt/data/image.png" class="awl-buddy-img" alt="AWL Buddy">
         <h1 class="shiny-title">AWL AI Web Scraper</h1>
         <p class="subtitle">
             <strong>🎉 It's AWL Buddy's First Day at Work! 🎉</strong><br>
