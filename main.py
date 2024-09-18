@@ -13,7 +13,7 @@ st.set_page_config(page_title="AWL AI Web Scraper", page_icon="🕸️", layout=
 # Test to ensure the logo loads
 st.image("AWL_Logo.png", width=150)  # This helps verify the image path
 
-# Custom CSS for glow effect, shiny intro, and subtitle animation
+# Custom CSS for modern and exciting text effects
 st.markdown("""
     <style>
         /* General Styles */
@@ -88,12 +88,12 @@ st.markdown("""
             text-shadow: 0 0 12px rgba(255, 255, 255, 0.8), 0 0 24px rgba(255, 255, 255, 0.5); /* Slight increase in glow on hover */
         }
 
-        /* Subtitle Animation for smooth pop-up effect */
+        /* Modern and Exciting Subtitle with Animation */
         .subtitle {
             font-size: 24px;
             color: #FFF;
             opacity: 0;
-            animation: subtitlePopUp 4s ease-in-out forwards; /* Animate once with ease */
+            animation: subtitlePopUp 4s ease-in-out forwards, pulse 2s infinite; /* Animate once and pulse */
             margin-top: -10px;
             text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow for depth */
             line-height: 1.5; /* Line height for better readability */
@@ -107,6 +107,19 @@ st.markdown("""
             100% {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+
+        /* Pulse animation for exciting effect */
+        @keyframes pulse {
+            0% {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 1);
+            }
+            100% {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
             }
         }
 
@@ -130,10 +143,10 @@ st.markdown("""
         <img src="AWL_BUDDY_Logo%20(2).png" class="awl-buddy-img" alt="AWL Buddy">
         <h1 class="shiny-title">AWL AI Web Scraper</h1>
         <p class="subtitle">
-            <strong>Welcome to AWL Buddy's First Day at Work!</strong><br>
-            AWL Buddy is currently preparing for his big day at AWL.<br>
-            Stay tuned as AWL Buddy will let you know when he clocks in.<br>
-            Thank you for the warm welcome!
+            <strong>🎉 Welcome to AWL Buddy's First Day at Work! 🎉</strong><br>
+            🚀 AWL Buddy is currently preparing for his big day at AWL.<br>
+            ⏳ Stay tuned as AWL Buddy will let you know when he clocks in.<br>
+            🙏 Thank you for the warm welcome!
         </p>  <!-- Subtitle message -->
     </div>
 """, unsafe_allow_html=True)
