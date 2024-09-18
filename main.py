@@ -10,8 +10,8 @@ from parse import parse_with_ollama
 # Set page config for better aesthetics
 st.set_page_config(page_title="AWL AI Web Scraper", page_icon="🕸️", layout="wide")
 
-# Test to ensure the logo loads
-st.image("AWL_Logo.png", width=150)  # This helps verify the image path
+# Display the logo
+st.image("AWL_Logo.png", width=150)  # Verifies the image path
 
 # Custom CSS for glow effect, shiny intro, and subtitle animation
 st.markdown("""
@@ -126,29 +126,13 @@ st.markdown("""
 # Header container with title, image, and message
 st.markdown("""
     <div class="header-container">
-        <img src="AWL_BUDDY_Logo (2).png" class="awl-buddy-img" alt="AWL Buddy">
+        <img src='/mnt/data/image.png' class="awl-buddy-img" alt="AWL Buddy">
         <h1 class="shiny-title">AWL AI Web Scraper</h1>
         <p class="subtitle">It's AWL Buddy's First Day At Work Today! AWL Buddy Is Currently preparing for his big day at AWL. AWL Buddy Will let you know when it Clocks in, Thank you for the warm welcome!</p>  <!-- Subtitle message -->
     </div>
 """, unsafe_allow_html=True)
 
-# URL input
-url = st.text_input("Enter a website URL:")
-
-# Scrape the website if URL is provided
-if url:
-    st.write("Scraping the website...")
-
-    # Scrape the website
-    result = scrape_website(url)
-    body_content = extract_body_content(result)
-    cleaned_content = clean_body_content(body_content)
-
-    st.session_state.dom_content = cleaned_content
-
-    # Show DOM content in an expandable section
-    with st.expander("View DOM Content"):
-        st.text_area("DOM Content", cleaned_content, height=300)
+# Removed URL input and Scrape Site button
 
 # Parsing logic if DOM content exists
 if "dom_content" in st.session_state:
