@@ -11,7 +11,7 @@ from parse import parse_with_ollama
 st.set_page_config(page_title="AWL AI Web Scraper", page_icon="🕸️", layout="wide")
 
 # Test to ensure the logo loads
-st.image("AWL_BUDDY_Logo.png", width=300)  # Increased the width to 300px
+st.image("AWL_BUDDY_Logo.png", width=150)  # Updated file name
 
 # Custom CSS for modern and exciting text effects
 st.markdown("""
@@ -33,7 +33,7 @@ st.markdown("""
 
         /* Image styling for AWL Buddy */
         .awl-buddy-img {
-            width: 300px; /* Increased logo size to 300px */
+            width: 150px; /* Adjust size as needed */
             border-radius: 10px;
             margin-bottom: 20px;
         }
