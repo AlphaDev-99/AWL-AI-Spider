@@ -10,13 +10,18 @@ from parse import parse_with_ollama
 # Set page config for better aesthetics
 st.set_page_config(page_title="AWL AI Web Scraper", page_icon="🕸️", layout="wide")
 
-# Custom CSS for modern and exciting text effects and bigger logo
+# Test to ensure the logo loads
+st.image("AWL_Logo.png", width=150)  # This helps verify the image path
+
+# Custom CSS for modern and exciting text effects
 st.markdown("""
     <style>
         /* General Styles */
         body {
             font-family: 'Helvetica', sans-serif;
-            background: rgba(255, 255, 255, 0.7); /* Ensure text is readable */
+            background: url('AWL_Logo.png') no-repeat center center fixed;
+            background-size: cover;
+            background-color: rgba(255, 255, 255, 0.7); /* Ensure text is readable */
             color: #333;
         }
 
@@ -28,18 +33,16 @@ st.markdown("""
 
         /* Image styling for AWL Buddy */
         .awl-buddy-img {
-            width: 96px; /* Matching the size of the title */
-            max-width: 100%;
-            height: auto;
+            width: 150px; /* Adjust size as needed */
             border-radius: 10px;
             margin-bottom: 20px;
         }
 
-        /* Shiny and Animated Title with Subtle Glow Effect and Large Font */
+        /* Shiny and Animated Title with Subtle Glow Effect and Larger Font */
         .shiny-title {
             font-weight: bold;
-            font-size: 96px;  /* Same size as the logo */
-            color: white;  
+            font-size: 96px;  /* Bigger font size */
+            color: white;  /* White color for the text */
             background: linear-gradient(90deg, white, white) 0% 0% no-repeat;
             background-size: 100% 100%;
             -webkit-background-clip: text;
@@ -134,11 +137,11 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Header container with the larger logo and title
+# Header container with title, image, and message
 st.markdown("""
     <div class="header-container">
+        <img src="AWL_BUDDY_Logo%20(2).png" class="awl-buddy-img" alt="AWL Buddy">
         <h1 class="shiny-title">AWL AI Web Scraper</h1>
-        <img src="AWL_BUDDY_Logo.png" class="awl-buddy-img" alt="AWL Buddy">
         <p class="subtitle">
             <strong>🎉 It's AWL Buddy's First Day at Work! 🎉</strong><br>
             🚀 AWL Buddy is currently preparing for his big day at AWL.<br>
