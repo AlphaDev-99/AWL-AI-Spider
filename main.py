@@ -109,35 +109,6 @@ st.markdown("""
             }
         }
 
-        /* Interactive Button Styling */
-        .stButton button {
-            background: linear-gradient(90deg, #FF0000, #1E90FF);  /* Red to Blue gradient */
-            border: none;
-            color: white;
-            padding: 10px 24px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 12px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
-        }
-
-        /* Interactive movement effect on hover for buttons */
-        .stButton button:hover {
-            transform: scale(1.05) translateY(-3px); /* Slight zoom and move up effect */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
-        }
-
-        /* Text Area Styling */
-        .stTextArea textarea {
-            border-radius: 12px;
-            border: 1px solid #ccc;
-            font-size: 14px;
-            padding: 12px;
-        }
-
         /* Gradient Footer */
         footer {
             text-align: center;
@@ -164,25 +135,22 @@ st.markdown("""
 # URL input
 url = st.text_input("Enter a website URL:")
 
-# Scrape button
-if st.button("Scrape Site"):
-    if url:
-        st.write("Scraping the website...")
+# Scrape the website if URL is provided
+if url:
+    st.write("Scraping the website...")
 
-        # Scrape the website
-        result = scrape_website(url)
-        body_content = extract_body_content(result)
-        cleaned_content = clean_body_content(body_content)
+    # Scrape the website
+    result = scrape_website(url)
+    body_content = extract_body_content(result)
+    cleaned_content = clean_body_content(body_content)
 
-        st.session_state.dom_content = cleaned_content
+    st.session_state.dom_content = cleaned_content
 
-        # Show DOM content in an expandable section
-        with st.expander("View DOM Content"):
-            st.text_area("DOM Content", cleaned_content, height=300)
-    else:
-        st.error("Please enter a valid URL.")
+    # Show DOM content in an expandable section
+    with st.expander("View DOM Content"):
+        st.text_area("DOM Content", cleaned_content, height=300)
 
-# Parsing logic
+# Parsing logic if DOM content exists
 if "dom_content" in st.session_state:
     parse_description = st.text_area("(App Created by: AWL) Describe what you want to parse:")
 
