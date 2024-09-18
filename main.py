@@ -28,8 +28,9 @@ st.markdown("""
 
         /* Image styling for AWL Buddy */
         .awl-buddy-img {
-            width: 600px; /* Increase logo size to 600px */
+            width: 96px; /* Matching the size of the title */
             max-width: 100%;
+            height: auto;
             border-radius: 10px;
             margin-bottom: 20px;
         }
@@ -136,8 +137,8 @@ st.markdown("""
 # Header container with the larger logo and title
 st.markdown("""
     <div class="header-container">
-        <img src="AWL_BUDDY_Logo.png" class="awl-buddy-img" alt="AWL Buddy">
         <h1 class="shiny-title">AWL AI Web Scraper</h1>
+        <img src="AWL_BUDDY_Logo.png" class="awl-buddy-img" alt="AWL Buddy">
         <p class="subtitle">
             <strong>🎉 It's AWL Buddy's First Day at Work! 🎉</strong><br>
             🚀 AWL Buddy is currently preparing for his big day at AWL.<br>
