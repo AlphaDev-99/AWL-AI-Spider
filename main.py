@@ -31,6 +31,13 @@ st.markdown("""
             margin-bottom: 20px; /* Space between logo and title */
         }
 
+        /* Image styling for AWL Buddy */
+        .awl-buddy-img {
+            width: 150px; /* Adjust size as needed */
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
         /* Shiny and Animated Title with Subtle Glow Effect and Larger Font */
         .shiny-title {
             font-weight: bold;
@@ -145,11 +152,12 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Header container with title and subtitle
+# Header container with title, image, and message
 st.markdown("""
     <div class="header-container">
+        <img src="AWL_BUDDY_Logo (2).png" class="awl-buddy-img" alt="AWL Buddy">
         <h1 class="shiny-title">AWL AI Web Scraper</h1>
-        <p class="subtitle">Exclusively for AWL</p>  <!-- Subtitle pop-up under the title -->
+        <p class="subtitle">It's AWL Buddy's First Day At Work Today! AWL Buddy Is Currently preparing for his big day at AWL. AWL Buddy Will let you know when it Clocks in, Thank you for the warm welcome!</p>  <!-- Subtitle message -->
     </div>
 """, unsafe_allow_html=True)
 
