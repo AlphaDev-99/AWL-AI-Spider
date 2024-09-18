@@ -151,23 +151,7 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-# URL input
-url = st.text_input("Enter a website URL:")
-
-# Scrape the website if URL is provided
-if url:
-    st.write("Scraping the website...")
-
-    # Scrape the website
-    result = scrape_website(url)
-    body_content = extract_body_content(result)
-    cleaned_content = clean_body_content(body_content)
-
-    st.session_state.dom_content = cleaned_content
-
-    # Show DOM content in an expandable section
-    with st.expander("View DOM Content"):
-        st.text_area("DOM Content", cleaned_content, height=300)
+# Scrape logic removed
 
 # Parsing logic if DOM content exists
 if "dom_content" in st.session_state:
