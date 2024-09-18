@@ -10,18 +10,13 @@ from parse import parse_with_ollama
 # Set page config for better aesthetics
 st.set_page_config(page_title="AWL AI Web Scraper", page_icon="🕸️", layout="wide")
 
-# Test to ensure the logo loads
-st.image("AWL_BUDDY_Logo.png", width=300)  # Increased the width to 300px
-
-# Custom CSS for modern and exciting text effects
+# Custom CSS for modern and exciting text effects and bigger logo
 st.markdown("""
     <style>
         /* General Styles */
         body {
             font-family: 'Helvetica', sans-serif;
-            background: url('AWL_BUDDY_Logo.png') no-repeat center center fixed;
-            background-size: cover;
-            background-color: rgba(255, 255, 255, 0.7); /* Ensure text is readable */
+            background: rgba(255, 255, 255, 0.7); /* Ensure text is readable */
             color: #333;
         }
 
@@ -33,16 +28,17 @@ st.markdown("""
 
         /* Image styling for AWL Buddy */
         .awl-buddy-img {
-            width: 300px; /* Increased logo size to 300px */
+            width: 600px; /* Increase logo size to 600px */
+            max-width: 100%;
             border-radius: 10px;
             margin-bottom: 20px;
         }
 
-        /* Shiny and Animated Title with Subtle Glow Effect and Larger Font */
+        /* Shiny and Animated Title with Subtle Glow Effect and Large Font */
         .shiny-title {
             font-weight: bold;
-            font-size: 96px;  /* Bigger font size */
-            color: white;  /* White color for the text */
+            font-size: 96px;  /* Same size as the logo */
+            color: white;  
             background: linear-gradient(90deg, white, white) 0% 0% no-repeat;
             background-size: 100% 100%;
             -webkit-background-clip: text;
@@ -137,7 +133,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Header container with title, image, and message
+# Header container with the larger logo and title
 st.markdown("""
     <div class="header-container">
         <img src="AWL_BUDDY_Logo.png" class="awl-buddy-img" alt="AWL Buddy">
