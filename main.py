@@ -143,7 +143,7 @@ st.markdown("""
         <img src="AWL_BUDDY_Logo%20(2).png" class="awl-buddy-img" alt="AWL Buddy">
         <h1 class="shiny-title">AWL AI Web Scraper</h1>
         <p class="subtitle">
-            <strong>🎉 Welcome to AWL Buddy's First Day at Work! 🎉</strong><br>
+            <strong>🎉 It's AWL Buddy's First Day at Work! 🎉</strong><br>
             🚀 AWL Buddy is currently preparing for his big day at AWL.<br>
             ⏳ Stay tuned as AWL Buddy will let you know when he clocks in.<br>
             🙏 Thank you for the warm welcome!
